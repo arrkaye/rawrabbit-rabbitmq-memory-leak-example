@@ -25,7 +25,7 @@ namespace RawRabbit.ConsoleApp.Sample
 	    private static Task<ValueResponse> SendValuesThoughRpcAsync(ValueRequest request)
 		{
             Console.Out.WriteLine($"Responding to request: {request.Value}");
-		    var randomString = RandomString(1000000);
+		    var randomString = RandomString(100000);
 		    return Task.FromResult(new ValueResponse
 			{
 				Value = randomString
