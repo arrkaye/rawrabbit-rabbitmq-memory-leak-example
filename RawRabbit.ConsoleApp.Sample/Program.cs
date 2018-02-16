@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EasyNetQ;
 using RawRabbit.Common;
 using RawRabbit.Instantiation;
 using RawRabbit.Messages.Sample;
@@ -16,9 +17,11 @@ namespace RawRabbit.ConsoleApp.Sample
 
         public static void Main(string[] args)
         {
-            IBusClient client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions() { ClientConfiguration = ConnectionStringParser.Parse("guest:guest@localhost:5672/") });
+            var client = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
+//            IBusClient client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions() { ClientConfiguration = ConnectionStringParser.Parse("guest:guest@localhost:5672/") });
 
-            client.RespondAsync<ValueRequest, ValueResponse>(request => SendValuesThoughRpcAsync(request));
+            client.RespondAsync<ValueRequest, ValueResponse>(SendValuesThoughRpcAsync);
+
             QuitEvent.WaitOne();
         }
 

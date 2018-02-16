@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
-using RawRabbit.Common;
-using RawRabbit.Instantiation;
+using EasyNetQ;
 using RawRabbit.Messages.Sample;
 
 namespace RawRabbit.AspNet.Sample
@@ -12,9 +9,11 @@ namespace RawRabbit.AspNet.Sample
 	{
 		public static void Main(string[] args)
 		{
-		    IBusClient client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions(){ClientConfiguration = ConnectionStringParser.Parse("guest:guest@localhost:5672/")});
+            //		    IBusClient client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions(){ClientConfiguration = ConnectionStringParser.Parse("guest:guest@localhost:5672/")});
 
-		    Console.Out.WriteLine($"Created client. Press enter to start.");
+		    var client = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
+
+            Console.Out.WriteLine($"Created client. Press enter to start.");
 		    Console.ReadLine();
 		    var memory = new List<long>();
             for (var i = 0; i < 10000; i++)
