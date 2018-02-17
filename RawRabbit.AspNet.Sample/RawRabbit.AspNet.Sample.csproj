@@ -16,13 +16,12 @@
 
   <ItemGroup>
     <PackageReference Include="EasyNetQ" Version="2.4.0-alpha0002" />
-    <PackageReference Include="RawRabbit" Version="2.0.0-rc3" />
-    <PackageReference Include="RawRabbit.DependencyInjection.ServiceCollection" Version="2.0.0-rc3" />
-    <PackageReference Include="RawRabbit.Enrichers.HttpContext" Version="2.0.0-rc3" />
-    <PackageReference Include="RawRabbit.Enrichers.MessageContext" Version="2.0.0-rc3" />
-    <PackageReference Include="RawRabbit.Operations.MessageSequence" Version="2.0.0-rc3" />
-    <PackageReference Include="RawRabbit.Operations.Publish" Version="2.0.0-rc3" />
-    <PackageReference Include="RawRabbit.Operations.Request" Version="2.0.0-rc3" />
+    <PackageReference Include="RawRabbit" Version="2.0.0-rc4" />
+    <PackageReference Include="RawRabbit.Enrichers.HttpContext" Version="2.0.0-rc4" />
+    <PackageReference Include="RawRabbit.Enrichers.MessageContext" Version="2.0.0-rc4" />
+    <PackageReference Include="RawRabbit.Operations.MessageSequence" Version="2.0.0-rc4" />
+    <PackageReference Include="RawRabbit.Operations.Publish" Version="2.0.0-rc4" />
+    <PackageReference Include="RawRabbit.Operations.Request" Version="2.0.0-rc4" />
   </ItemGroup>
 
   <ItemGroup>

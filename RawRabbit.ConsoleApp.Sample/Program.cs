@@ -17,10 +17,10 @@ namespace RawRabbit.ConsoleApp.Sample
 
         public static void Main(string[] args)
         {
-            var client = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
-//            IBusClient client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions() { ClientConfiguration = ConnectionStringParser.Parse("guest:guest@localhost:5672/") });
+//            var client = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
+            IBusClient client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions() { ClientConfiguration = ConnectionStringParser.Parse("guest:guest@localhost:5672/") });
 
-            client.RespondAsync<ValueRequest, ValueResponse>(SendValuesThoughRpcAsync);
+            client.RespondAsync<ValueRequest, ValueResponse>(r => SendValuesThoughRpcAsync(r));
 
             QuitEvent.WaitOne();
         }
